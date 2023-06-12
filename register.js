@@ -8,7 +8,7 @@ const formRegister = document.getElementById("form-register")
 
 export let storedUsers = [{
     user: "admin",
-    password: "123"
+    password: 123
 }]
 
 formRegister.addEventListener("submit", (e) => {
@@ -33,13 +33,14 @@ formRegister.addEventListener("submit", (e) => {
 
 })
 
-function verifyLocalStorage(){
+function verifyLocalStorage() {
     const localStorageUsers = JSON.parse(localStorage.getItem("users"))
-    storedUsers = localStorageUsers
+    if (localStorageUsers != undefined) {
+        storedUsers = localStorageUsers
+    }
     console.log("Usuarios almacenados localmente", storedUsers);
 }
 verifyLocalStorage()
-
 
 
 
